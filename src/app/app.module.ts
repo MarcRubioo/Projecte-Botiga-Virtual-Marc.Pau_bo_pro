@@ -20,6 +20,7 @@ import {FormsModule} from "@angular/forms";
 import { DadesUserComponent } from './dades-user/dades-user.component';
 import {NgbCarousel, NgbRating} from "@ng-bootstrap/ng-bootstrap";
 import {DatePipe} from "@angular/common";
+import { InfoExComponent } from './info-ex/info-ex.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {DatePipe} from "@angular/common";
     RobaComponent,
     AccesorisComponent,
     SuplementsComponent,
-    DadesUserComponent
+    DadesUserComponent,
+    InfoExComponent
   ],
   imports: [
     BrowserModule,

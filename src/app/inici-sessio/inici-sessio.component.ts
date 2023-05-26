@@ -18,6 +18,46 @@ export class IniciSessioComponent implements OnInit{
   ngOnInit() {
   }
 
+  async obrirWallet() {
+    //@ts-ignore
+    if (typeof window.ethereum !== 'undefined') {
+      //@ts-ignore
+      const wallet = window.ethereum;
+      wallet
+        .send('eth_requestAccounts')
+        .then((accounts: string[]) => {
+          const count = accounts[0];
+          console.log('Sesión iniciada:', count);
+
+        })
+        .catch((error: any) => {
+          console.log('Error: ', error);
+        });
+    } else {
+      console.log('Metamask no instal·lat');
+    }
+
+
+
+    // if (window.ethereum) {
+    //   try {
+    //     // Request account access from the user
+    //     await window.ethereum.request({ method: 'eth_requestAccounts' });
+    //     console.log('User has logged in with MetaMask!');
+    //
+    //     // Additional logic after successful login
+    //
+    //   } catch (error) {
+    //     console.error('Error logging in with MetaMask:', error);
+    //   }
+    // } else {
+    //   console.error('MetaMask is not installed');
+    // }
+  }
+
+
+
+
 
   login($myParam: string = ''): void{
     const nav: string[] = ['']
@@ -29,7 +69,7 @@ export class IniciSessioComponent implements OnInit{
 
 
     var resultat: Object =false;
-    var username:any;
+
     let req = new HttpParams().set('email',this.emailLog);
     let req2 = new HttpParams().set('passw',this.passLog);
     this.http.get("http://localhost:3080/email", {params: req}).subscribe((client)=>{
@@ -41,25 +81,19 @@ export class IniciSessioComponent implements OnInit{
             alert("Inici de sessió correcte")
             alert("Iniciat el usuari amb l'"+req)
 
-
-            // let nom;
-            //
-            // // @ts-ignore
-            // nom = document.getElementById("emailinici").value;
-            // localStorage.getItem("nom");
-            // let correctee = localStorage.setItem("nom",nom)
-            //
-            // window.location.reload();
-            //
-            // console.log("Prova")
-            // console.log(nom)
-
             const data = new Date()
             const formatdata = data.toDateString() + " hora: " +data.getHours() + ":" + data.getMinutes()
             const text ={
-              text: `/ Data: ${formatdata} Usuari: Acció: Inici de sessió correcte`
+              text: `/ Data: ${formatdata} Usuari: ${this.emailLog} Acció: Inici de sessió correcte`
             }
             this.http.post<any>("http://localhost:3080/log/inici/sessioCorrecte", text).subscribe();
+
+            localStorage.setItem('email', this.emailLog);
+
+            this.obrirWallet()
+
+            // window.location.reload();
+
           }
           else{
             alert("Contrasenya incorrecte")}

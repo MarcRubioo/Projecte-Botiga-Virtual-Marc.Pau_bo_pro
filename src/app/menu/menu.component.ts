@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit{
 
 
 
+
   constructor( private http: HttpClient) {
     const images={
       logo: "http://localhost:3080/imatges/logo",
@@ -26,7 +27,8 @@ export class MenuComponent implements OnInit{
 
 
   ngOnInit() {
-      this.mostrar = localStorage.getItem("nom")
+    this.mostrar = localStorage.getItem('email');
+
 
     //@ts-ignore
     logout.onclick = function clear(){

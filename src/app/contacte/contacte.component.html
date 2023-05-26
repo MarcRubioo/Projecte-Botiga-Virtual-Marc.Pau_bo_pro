@@ -50,21 +50,20 @@
 
         Tan ràpid com hàgim examinat els detalls us enviarem un correu electrònic amb el resultat.</p>
     </section>
+  </div>
+  <div id="con_treballadors">
 
-    <section id="Menu4">
-      <a href="#Menu4">Com puc pagar la meva comanda?</a>
-      <p>Oferim una varietat de mètodes de pagament en línia per assegurar-nos que els nostres clients poden accedir
-        als millors productes de nutrició esportiva amb facilitat.</p>
-    </section>
+    <div class="Treballador">
+      <p>Treballador atenció client:</p>
+      <img [src]="user?.picture?.large" alt="User photo" />
+      <p>{{ user?.name?.title }} {{ user?.name?.first }} {{ user?.name?.last }}</p>
+      <p>Age: {{ user?.dob?.age }}</p>
+      <p>Email: {{ user?.email }}</p>
 
-    <section id="Menu5">
-      <a href="#Menu5">Què passa si no sóc a casa per rebre el meu paquet?</a>
-      <p>No et preocupis. Si el paquet no cap a la bústia o requereix la vostra signatura, el repartidor us deixarà una nota d'avís.<br/><br/>
-
-        Aquesta nota t'informarà on és el teu paquet i com el pots recollir.</p>
-    </section>
+    </div>
 
   </div>
+
 </article>
 
 <app-peu-pagina></app-peu-pagina>

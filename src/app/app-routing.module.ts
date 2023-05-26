@@ -17,6 +17,8 @@ import {RobaComponent} from "./roba/roba.component";
 import {AccesorisComponent} from "./accesoris/accesoris.component";
 import {SuplementsComponent} from "./suplements/suplements.component";
 import {DadesUserComponent} from "./dades-user/dades-user.component";
+import {InfoExComponent} from "./info-ex/info-ex.component";
+
 
 const routes: Routes = [
   {path: '' , component:PlanaPrincipalComponent},
@@ -30,6 +32,7 @@ const routes: Routes = [
   {path: 'cataleg/accessoris' , component:AccesorisComponent},
   {path: 'cataleg/suplements' , component:SuplementsComponent},
   {path: 'dadesUser' , component:DadesUserComponent},
+  {path: 'InfoEx', component:InfoExComponent}
 ]
 
 @NgModule({

@@ -42,3 +42,12 @@ section:target p {
   max-height: 20%;
   padding: 10px;
 }
+
+#con_treballadors{
+  margin-left: 33%;
+}
+
+.Treballador{
+  float: left;
+  margin-left: 10%;
+}
